@@ -85,11 +85,11 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aec68cb6c52c893a98a113eb5fc9ce14e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dd3/classanalyseEvent.html#aec68cb6c52c893a98a113eb5fc9ce14e">analyseEvent</a> (HepMC::GenEvent *evtInput)</td></tr>
 <tr class="separator:aec68cb6c52c893a98a113eb5fc9ce14e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bb6d0cef8a91353dbbe13857c8b2e16"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dd3/classanalyseEvent.html#a9bb6d0cef8a91353dbbe13857c8b2e16">~analyseEvent</a> ()</td></tr>
-<tr class="separator:a9bb6d0cef8a91353dbbe13857c8b2e16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58eb9e122970638f777d25f36889576c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dd3/classanalyseEvent.html#a58eb9e122970638f777d25f36889576c">passCuts</a> (std::string dettest)</td></tr>
-<tr class="memdesc:a58eb9e122970638f777d25f36889576c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The passCuts function looks for the cuts relevant for each detector and applies it to the tested event.  <a href="../../df/dd3/classanalyseEvent.html#a58eb9e122970638f777d25f36889576c">More...</a><br /></td></tr>
-<tr class="separator:a58eb9e122970638f777d25f36889576c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b56ad48fb07161f37879686b3719dcc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dd3/classanalyseEvent.html#a0b56ad48fb07161f37879686b3719dcc">~analyseEvent</a> ()=default</td></tr>
+<tr class="separator:a0b56ad48fb07161f37879686b3719dcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b377cf8e808373bf435580873243040"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dd3/classanalyseEvent.html#a1b377cf8e808373bf435580873243040">passCuts</a> (const std::string &amp;dettest)</td></tr>
+<tr class="memdesc:a1b377cf8e808373bf435580873243040"><td class="mdescLeft">&#160;</td><td class="mdescRight">The passCuts function looks for the cuts relevant for each detector and applies it to the tested event.  <a href="../../df/dd3/classanalyseEvent.html#a1b377cf8e808373bf435580873243040">More...</a><br /></td></tr>
+<tr class="separator:a1b377cf8e808373bf435580873243040"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -121,15 +121,15 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a9bb6d0cef8a91353dbbe13857c8b2e16" name="a9bb6d0cef8a91353dbbe13857c8b2e16"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9bb6d0cef8a91353dbbe13857c8b2e16">&#9670;&#160;</a></span>~analyseEvent()</h2>
+<a id="a0b56ad48fb07161f37879686b3719dcc" name="a0b56ad48fb07161f37879686b3719dcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b56ad48fb07161f37879686b3719dcc">&#9670;&#160;</a></span>~analyseEvent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -146,7 +146,7 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -154,8 +154,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a58eb9e122970638f777d25f36889576c" name="a58eb9e122970638f777d25f36889576c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58eb9e122970638f777d25f36889576c">&#9670;&#160;</a></span>passCuts()</h2>
+<a id="a1b377cf8e808373bf435580873243040" name="a1b377cf8e808373bf435580873243040"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b377cf8e808373bf435580873243040">&#9670;&#160;</a></span>passCuts()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -163,7 +163,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">bool analyseEvent::passCuts </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>dettest</em></td><td>)</td>
           <td></td>
         </tr>

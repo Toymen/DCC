@@ -77,8 +77,8 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="../../d0/dcc/CCylDetLayer_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifndef _CCYLDETLAYER_</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#define _CCYLDETLAYER_</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifndef DCC_CCYLDETLAYER_H</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#define DCC_CCYLDETLAYER_H</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d5d/CCylSeg_8h.html">include/CCylSeg.h</a>&quot;</span></div>
@@ -90,15 +90,15 @@ $(function() {
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d4/deb/classCylDetLayer.html#af817a5470bde939562b205026f73100e">   20</a></span>    std::vector&lt;CylSeg&gt; <a class="code hl_variable" href="../../d4/deb/classCylDetLayer.html#af817a5470bde939562b205026f73100e">CylSegList</a>;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../d4/deb/classCylDetLayer.html#a90498ee4fd7c9101a65cd684297a24d4">   21</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="../../d4/deb/classCylDetLayer.html#a90498ee4fd7c9101a65cd684297a24d4">weight</a>;</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_class" href="../../d4/deb/classCylDetLayer.html">CylDetLayer</a>(std::vector&lt;CylSeg&gt;,<span class="keywordtype">double</span>);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_class" href="../../d4/deb/classCylDetLayer.html">CylDetLayer</a>(std::vector&lt;std::array&lt;double,2&gt;&gt;,<span class="keywordtype">double</span>);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="../../d4/deb/classCylDetLayer.html#aac1591ea7d2425e34fd6eeec0a2bc894">inDetDec</a>(<span class="keywordtype">double</span>,<span class="keywordtype">double</span>);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_class" href="../../d4/deb/classCylDetLayer.html">CylDetLayer</a>(std::vector&lt;CylSeg&gt; Seglist, <span class="keywordtype">double</span> wgh);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_class" href="../../d4/deb/classCylDetLayer.html">CylDetLayer</a>(std::vector&lt;std::array&lt;double,2&gt;&gt; ptlist, <span class="keywordtype">double</span> wgh);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="../../d4/deb/classCylDetLayer.html#a2f8038deac4fa1fece1d9e47e491cfd2">inDetDec</a>(<span class="keywordtype">double</span> theta, <span class="keywordtype">double</span> leff);</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>};</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aCCylSeg_8h_html"><div class="ttname"><a href="../../db/d5d/CCylSeg_8h.html">CCylSeg.h</a></div></div>
 <div class="ttc" id="aclassCylDetLayer_html"><div class="ttname"><a href="../../d4/deb/classCylDetLayer.html">CylDetLayer</a></div><div class="ttdoc">The class CylDetLayer defines a detector layer in cylindrical coordinates.</div><div class="ttdef"><b>Definition:</b> CCylDetLayer.h:19</div></div>
+<div class="ttc" id="aclassCylDetLayer_html_a2f8038deac4fa1fece1d9e47e491cfd2"><div class="ttname"><a href="../../d4/deb/classCylDetLayer.html#a2f8038deac4fa1fece1d9e47e491cfd2">CylDetLayer::inDetDec</a></div><div class="ttdeci">double inDetDec(double theta, double leff)</div><div class="ttdoc">Decay probability function for the CylDetLayer class.</div><div class="ttdef"><b>Definition:</b> CCylDetLayer.cc:193</div></div>
 <div class="ttc" id="aclassCylDetLayer_html_a90498ee4fd7c9101a65cd684297a24d4"><div class="ttname"><a href="../../d4/deb/classCylDetLayer.html#a90498ee4fd7c9101a65cd684297a24d4">CylDetLayer::weight</a></div><div class="ttdeci">double weight</div><div class="ttdef"><b>Definition:</b> CCylDetLayer.h:21</div></div>
-<div class="ttc" id="aclassCylDetLayer_html_aac1591ea7d2425e34fd6eeec0a2bc894"><div class="ttname"><a href="../../d4/deb/classCylDetLayer.html#aac1591ea7d2425e34fd6eeec0a2bc894">CylDetLayer::inDetDec</a></div><div class="ttdeci">double inDetDec(double, double)</div><div class="ttdoc">Decay probability function for the CylDetLayer class.</div><div class="ttdef"><b>Definition:</b> CCylDetLayer.cc:163</div></div>
 <div class="ttc" id="aclassCylDetLayer_html_af817a5470bde939562b205026f73100e"><div class="ttname"><a href="../../d4/deb/classCylDetLayer.html#af817a5470bde939562b205026f73100e">CylDetLayer::CylSegList</a></div><div class="ttdeci">std::vector&lt; CylSeg &gt; CylSegList</div><div class="ttdef"><b>Definition:</b> CCylDetLayer.h:20</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

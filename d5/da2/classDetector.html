@@ -97,9 +97,9 @@ Collaboration diagram for Detector:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7c91502624f5f650e44762757567d913"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/da2/classDetector.html#a7c91502624f5f650e44762757567d913">Detector</a> (std::string, double, std::vector&lt; <a class="el" href="../../d4/deb/classCylDetLayer.html">CylDetLayer</a> &gt;)</td></tr>
-<tr class="memdesc:a7c91502624f5f650e44762757567d913"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of the <a class="el" href="../../d5/da2/classDetector.html" title="The Detector class defines the basic properties of a detector model.">Detector</a> class.  <a href="../../d5/da2/classDetector.html#a7c91502624f5f650e44762757567d913">More...</a><br /></td></tr>
-<tr class="separator:a7c91502624f5f650e44762757567d913"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1e491b2b82a7d7e9d8aaf28b306bc6f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/da2/classDetector.html#aa1e491b2b82a7d7e9d8aaf28b306bc6f">Detector</a> (const std::string &amp;myDet, double myLumi, const std::vector&lt; <a class="el" href="../../d4/deb/classCylDetLayer.html">CylDetLayer</a> &gt; &amp;LayList)</td></tr>
+<tr class="memdesc:aa1e491b2b82a7d7e9d8aaf28b306bc6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of the <a class="el" href="../../d5/da2/classDetector.html" title="The Detector class defines the basic properties of a detector model.">Detector</a> class.  <a href="../../d5/da2/classDetector.html#aa1e491b2b82a7d7e9d8aaf28b306bc6f">More...</a><br /></td></tr>
+<tr class="separator:aa1e491b2b82a7d7e9d8aaf28b306bc6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8996790875b78ededf8a430bb1a73ce3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/da2/classDetector.html#a8996790875b78ededf8a430bb1a73ce3">DetAcc</a> (double, double)</td></tr>
 <tr class="separator:a8996790875b78ededf8a430bb1a73ce3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adde5e999af89767a93b84a34a73d28d9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/da2/classDetector.html#adde5e999af89767a93b84a34a73d28d9">readname</a> ()</td></tr>
@@ -120,8 +120,8 @@ Private Attributes</h2></td></tr>
 <div class="textblock"><p >The <a class="el" href="../../d5/da2/classDetector.html" title="The Detector class defines the basic properties of a detector model.">Detector</a> class defines the basic properties of a detector model. </p>
 <p >The <a class="el" href="../../d5/da2/classDetector.html" title="The Detector class defines the basic properties of a detector model.">Detector</a> class collects together a list (vector) of cylindrical detector layers. It is labelled with an identifier and receives a default integrated luminosity. Both of these properties can be read, as well as the detector's acceptance. This is the 'macroscopic' object that is tested in the simulation. <a class="el" href="../../d5/da2/classDetector.html" title="The Detector class defines the basic properties of a detector model.">Detector</a> models are stored in the src/Detectors/ folder. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a7c91502624f5f650e44762757567d913" name="a7c91502624f5f650e44762757567d913"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c91502624f5f650e44762757567d913">&#9670;&#160;</a></span>Detector()</h2>
+<a id="aa1e491b2b82a7d7e9d8aaf28b306bc6f" name="aa1e491b2b82a7d7e9d8aaf28b306bc6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1e491b2b82a7d7e9d8aaf28b306bc6f">&#9670;&#160;</a></span>Detector()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -129,7 +129,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">Detector::Detector </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>myDet</em>, </td>
         </tr>
         <tr>
@@ -141,7 +141,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="../../d4/deb/classCylDetLayer.html">CylDetLayer</a> &gt;&#160;</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="../../d4/deb/classCylDetLayer.html">CylDetLayer</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>LayList</em>&#160;</td>
         </tr>
         <tr>

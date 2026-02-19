@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['lexer_0',['lexer',['../d8/d22/classnlohmann_1_1detail_1_1lexer.html#a89bbc051da2514a469441a3a30ad63e4',1,'nlohmann::detail::lexer::lexer(InputAdapterType &amp;&amp;adapter, bool ignore_comments_=false) noexcept'],['../d8/d22/classnlohmann_1_1detail_1_1lexer.html#ab75d61c4de687717648c7698850ddb9b',1,'nlohmann::detail::lexer::lexer(const lexer &amp;)=delete'],['../d8/d22/classnlohmann_1_1detail_1_1lexer.html#ae95416c7ae8b36f0dd0ab349eaa754a2',1,'nlohmann::detail::lexer::lexer(lexer &amp;&amp;)=default']]],
-  ['little_5fendianness_1',['little_endianness',['../dc/df0/namespacenlohmann_1_1detail.html#a6d9410847162a2ad2f1cff0dcce3b1d9',1,'nlohmann::detail']]]
+  ['_7eanalyseevent_0',['~analyseEvent',['../df/dd3/classanalyseEvent.html#a9bb6d0cef8a91353dbbe13857c8b2e16',1,'analyseEvent']]],
+  ['_7eanalysis_1',['~analysis',['../d4/db0/classanalysis.html#af5938086aabb68bf478a72b0593e4bb8',1,'analysis']]]
 ];

@@ -83,10 +83,10 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2aa3ba45dedcaec9603e359c0ba3d79b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8c/classCylSeg.html#a2aa3ba45dedcaec9603e359c0ba3d79b">CylSeg</a> (std::array&lt; double, 2 &gt; Azy, std::array&lt; double, 2 &gt; Bzy, int fls)</td></tr>
-<tr class="separator:a2aa3ba45dedcaec9603e359c0ba3d79b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ff6fc69f896d75d4c1f9d5af0795b12"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8c/classCylSeg.html#a9ff6fc69f896d75d4c1f9d5af0795b12">DecProb</a> (double theta, double leff) const</td></tr>
-<tr class="separator:a9ff6fc69f896d75d4c1f9d5af0795b12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b2accfed880f989b144a4f58421152f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8c/classCylSeg.html#a1b2accfed880f989b144a4f58421152f">CylSeg</a> (std::array&lt; double, 2 &gt;, std::array&lt; double, 2 &gt;, int)</td></tr>
+<tr class="separator:a1b2accfed880f989b144a4f58421152f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e46c2aa63dc333d581d025f67b34031"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8c/classCylSeg.html#a7e46c2aa63dc333d581d025f67b34031">DecProb</a> (double, double)</td></tr>
+<tr class="separator:a7e46c2aa63dc333d581d025f67b34031"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -111,8 +111,8 @@ Private Attributes</h2></td></tr>
 <div class="textblock"><p >Oriented segment corresponding to the detector's surface. </p>
 <p >The <a class="el" href="../../de/d8c/classCylSeg.html" title="Oriented segment corresponding to the detector&#39;s surface.">CylSeg</a> class defines oriented segments in the cylindrical plane {z,h=sqrt(x*x+y*y)}. {zA,yA} and {zB,yB} are the coordinates of the extreme points. detv=zA*yB-zB*yA checks triviality: detv=0 corresponds to an uninteresting segment, either trivial or aligned with the interaction point. Points {z,y} in the segment satisfy the equation zeqn*z+yeqn*y=1. The case zeqn*z+yeqn*y=0 is irrelevant (aligned with IP). flysign is the sign determining the orientation of the segment. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a2aa3ba45dedcaec9603e359c0ba3d79b" name="a2aa3ba45dedcaec9603e359c0ba3d79b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2aa3ba45dedcaec9603e359c0ba3d79b">&#9670;&#160;</a></span>CylSeg()</h2>
+<a id="a1b2accfed880f989b144a4f58421152f" name="a1b2accfed880f989b144a4f58421152f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b2accfed880f989b144a4f58421152f">&#9670;&#160;</a></span>CylSeg()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -147,8 +147,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9ff6fc69f896d75d4c1f9d5af0795b12" name="a9ff6fc69f896d75d4c1f9d5af0795b12"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ff6fc69f896d75d4c1f9d5af0795b12">&#9670;&#160;</a></span>DecProb()</h2>
+<a id="a7e46c2aa63dc333d581d025f67b34031" name="a7e46c2aa63dc333d581d025f67b34031"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e46c2aa63dc333d581d025f67b34031">&#9670;&#160;</a></span>DecProb()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -157,7 +157,7 @@ Private Attributes</h2></td></tr>
           <td class="memname">double CylSeg::DecProb </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>theta</em>, </td>
+          <td class="paramname"><em>th</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -168,7 +168,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">

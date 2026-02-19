@@ -82,16 +82,6 @@ $(function() {
 <p >The code is written in C++. There is a Makefile. In the first lines of Makefile, put in the path to your own Pythia8 and HepMC2 installation. Pythia8 should have been compiled with a link to zlib, in order to allow for reading *.lhe.gz files. If you do not use zlib, remove "-lz" in the line starting with "LDFLAGS". Run "make -jN" in the terminal to compile, where N is the number of CPU cores you want to use.</p>
 <h1>Run the program</h1>
 <p >One needs to run the program "main" within the folder "bin", with "./main" followed by arguments.</p>
-<h1>Docker &amp; dev container</h1>
-<p >A multi-stage <b>Dockerfile</b> builds a minimal runtime image. You can also run a <b>permanent dev container</b> for Cursor/VS Code:</p>
-<ul>
-<li><b>Option A – Reopen in Container (recommended)</b> <br  />
- Open this repo in Cursor (or VS Code with the Dev Containers extension), then use <b>“Dev Containers: Reopen in Container”</b>. The dev image (build tools, HepMC, Pythia) will be built and a long-lived container started so you can develop and build inside it.</li>
-<li><b>Option B – Attach to a running container</b> <br  />
- Build and start the dev container yourself, then attach Cursor to it: <div class="fragment"><div class="line">docker build -t dcc:dev --target dev .</div>
-<div class="line">docker run -d --name dcc-dev -v $(pwd):/dcc -w /dcc dcc:dev</div>
-</div><!-- fragment --> In Cursor: <b>“Dev Containers: Attach to Running Container…”</b> → choose <code>dcc-dev</code>. The container keeps running until you stop it (<code>docker stop dcc-dev</code>).</li>
-</ul>
 <h1>Relevant files for the benchmark models</h1>
 <p >We provide the input files, Python plotting scripts, the final sensitivity plots, as well as the data points, of the theoretical benchmark models considered in the paper, collectively in the folder "examples". If you want to test these examples, please do not forget to modify certain information in the input files, such as "input_file_path" in the "...Events.dat" files.</p>
 <h1>Doxygen documentation</h1>

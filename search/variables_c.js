@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['oa_0',['oa',['../df/d13/classnlohmann_1_1detail_1_1output__adapter.html#a323c18d74d6680faafec6dc3ace825e2',1,'nlohmann::detail::output_adapter::oa()'],['../df/d1a/classnlohmann_1_1detail_1_1binary__writer.html#a6f15b782a7900f50ef37d123008e601b',1,'nlohmann::detail::binary_writer::oa()']]],
-  ['object_5felement_1',['object_element',['../dc/d68/classnlohmann_1_1detail_1_1json__sax__dom__parser.html#a9c03c76d3a8e89c8928097ba0b92c2db',1,'nlohmann::detail::json_sax_dom_parser::object_element()'],['../d6/d69/classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a2a8adecd936ba6ec187f1216241b508f',1,'nlohmann::detail::json_sax_dom_callback_parser::object_element()']]],
-  ['object_5fiterator_2',['object_iterator',['../d7/d10/structnlohmann_1_1detail_1_1internal__iterator.html#a8cb0af3498061426c1d0a65ad6220408',1,'nlohmann::detail::internal_iterator']]],
-  ['other_5fiter_5fimpl_3',['other_iter_impl',['../d1/d7c/classnlohmann_1_1detail_1_1iter__impl.html#aba0841e618c77cc65ccfd52164c346b9',1,'nlohmann::detail::iter_impl']]],
-  ['owned_5fvalue_4',['owned_value',['../da/d10/classnlohmann_1_1detail_1_1json__ref.html#a5d7bd67a5ab713d9be1e248cf9d509cd',1,'nlohmann::detail::json_ref']]]
+  ['ya_0',['yA',['../de/d8c/classCylSeg.html#a16a0673bc4f9cc6f8d58d9cfabc958cc',1,'CylSeg']]],
+  ['yb_1',['yB',['../de/d8c/classCylSeg.html#a8bbe6b14d8d169a5baee25fe421ce282',1,'CylSeg']]],
+  ['yeqn_2',['yeqn',['../de/d8c/classCylSeg.html#a70fbfd9476808507af3d3ab10a79cab5',1,'CylSeg']]]
 ];

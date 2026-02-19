@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['key_0',['key',['../d5/de9/classnlohmann_1_1detail_1_1iteration__proxy__value.html#ae0b4338b87dee323606fb51777343cfd',1,'nlohmann::detail::iteration_proxy_value::key()'],['../d0/d82/structnlohmann_1_1json__sax.html#a2e0c7ecd80b18d18a8cc76f71cfc2028',1,'nlohmann::json_sax::key()'],['../dc/d68/classnlohmann_1_1detail_1_1json__sax__dom__parser.html#ad427febda4997cbd8345a2596af66649',1,'nlohmann::detail::json_sax_dom_parser::key()'],['../d6/d69/classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a0cc4a5192fe9b803276edb831b6099fa',1,'nlohmann::detail::json_sax_dom_callback_parser::key()'],['../d2/d2a/classnlohmann_1_1detail_1_1json__sax__acceptor.html#a59e1ea5e9c8d25346a564bf9287a5c2a',1,'nlohmann::detail::json_sax_acceptor::key()'],['../d1/d7c/classnlohmann_1_1detail_1_1iter__impl.html#a9aa08ccaf6e80f7bd9513c0d054efb64',1,'nlohmann::detail::iter_impl::key()'],['../de/d74/classnlohmann_1_1detail_1_1json__reverse__iterator.html#adc648a641e8e9a1072c5abd56ad06401',1,'nlohmann::detail::json_reverse_iterator::key()']]]
+  ['what_0',['what',['../db/d20/classmyexception.html#a88f0e7ec8e34ac6a1cf31442bed53d66',1,'myexception']]]
 ];

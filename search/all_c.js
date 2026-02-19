@@ -1,13 +1,16 @@
 var searchData=
 [
-  ['k_0',['k',['../d5/dfe/structnlohmann_1_1detail_1_1dtoa__impl_1_1cached__power.html#a8c1f2efed643eeaa8fae83c697a29c6a',1,'nlohmann::detail::dtoa_impl::cached_power']]],
-  ['kalpha_1',['kAlpha',['../dc/d41/namespacenlohmann_1_1detail_1_1dtoa__impl.html#ac1ea1316de0b4a219f707c76b1db1966',1,'nlohmann::detail::dtoa_impl']]],
-  ['keep_5fstack_2',['keep_stack',['../d6/d69/classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#ac24fd6c9f1b31b44328c16d65755ae76',1,'nlohmann::detail::json_sax_dom_callback_parser']]],
-  ['key_3',['key',['../de/d74/classnlohmann_1_1detail_1_1json__reverse__iterator.html#adc648a641e8e9a1072c5abd56ad06401',1,'nlohmann::detail::json_reverse_iterator::key()'],['../dc/df0/namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a3c6e0b8a9c15224a8228b9a98ca1531d',1,'nlohmann::detail::key()'],['../d1/d7c/classnlohmann_1_1detail_1_1iter__impl.html#a9aa08ccaf6e80f7bd9513c0d054efb64',1,'nlohmann::detail::iter_impl::key()'],['../d2/d2a/classnlohmann_1_1detail_1_1json__sax__acceptor.html#a59e1ea5e9c8d25346a564bf9287a5c2a',1,'nlohmann::detail::json_sax_acceptor::key()'],['../d6/d69/classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a0cc4a5192fe9b803276edb831b6099fa',1,'nlohmann::detail::json_sax_dom_callback_parser::key()'],['../dc/d68/classnlohmann_1_1detail_1_1json__sax__dom__parser.html#ad427febda4997cbd8345a2596af66649',1,'nlohmann::detail::json_sax_dom_parser::key()'],['../d0/d82/structnlohmann_1_1json__sax.html#a2e0c7ecd80b18d18a8cc76f71cfc2028',1,'nlohmann::json_sax::key()'],['../d5/de9/classnlohmann_1_1detail_1_1iteration__proxy__value.html#ae0b4338b87dee323606fb51777343cfd',1,'nlohmann::detail::iteration_proxy_value::key()']]],
-  ['key_5ffunction_5ft_4',['key_function_t',['../dc/df0/namespacenlohmann_1_1detail.html#a44869ca9f422b260625d78e4e8121559',1,'nlohmann::detail']]],
-  ['key_5fkeep_5fstack_5',['key_keep_stack',['../d6/d69/classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a8f0e96e8bc4f692169024105693f5706',1,'nlohmann::detail::json_sax_dom_callback_parser']]],
-  ['key_5ftype_6',['key_type',['../d6/da7/structnlohmann_1_1ordered__map.html#a57095c6ed403f02e1bc2c240a13c9ed8',1,'nlohmann::ordered_map']]],
-  ['key_5ftype_5ft_7',['key_type_t',['../dc/df0/namespacenlohmann_1_1detail.html#a66dfe39f03b05d6b7265a0ff748d64ef',1,'nlohmann::detail']]],
-  ['kgamma_8',['kGamma',['../dc/d41/namespacenlohmann_1_1detail_1_1dtoa__impl.html#a4a750fcc38da1ce68b7e25ab3a230e20',1,'nlohmann::detail::dtoa_impl']]],
-  ['kprecision_9',['kPrecision',['../d4/d54/structnlohmann_1_1detail_1_1dtoa__impl_1_1diyfp.html#a03682754b06ed4f30b263119eecc2d52',1,'nlohmann::detail::dtoa_impl::diyfp']]]
+  ['setallinput_0',['setAllInput',['../d4/db0/classanalysis.html#a65db53ddb53e623864dc7800d2990c15',1,'analysis']]],
+  ['setdetectors_1',['setDETECTORS',['../d4/db0/classanalysis.html#a484f5a7fc24c3c11144cf32bcabe72c4',1,'analysis']]],
+  ['setinput_2',['setInput',['../d9/dbc/classinputInterface.html#a6dce4efc471056aa7fda37bd1533302d',1,'inputInterface::setInput(std::ifstream &amp;inputfileEvents, std::ifstream &amp;inputfileLLP, std::string inputPathToResultFile)'],['../d9/dbc/classinputInterface.html#af4083566737298681b1d44e3c3b475ca',1,'inputInterface::setInput(int argc, char *argv[])']]],
+  ['setinputfileformat_3',['setINPUTFILEFORMAT',['../d4/db0/classanalysis.html#a6bbcc6dcdb01e280db5ccfcc7b13ee43',1,'analysis']]],
+  ['setinputfilepath_4',['setINPUTFILEPATH',['../d4/db0/classanalysis.html#ac17faa400d42d0baf6514315a3ebc262',1,'analysis']]],
+  ['setsigma_5',['setSIGMA',['../d4/db0/classanalysis.html#a3fa307ba81a374d3c185d5ccbbe91be1',1,'analysis']]],
+  ['setverbose_6',['setVerbose',['../d4/db0/classanalysis.html#aff58bdda1bd311145b0036e52484ddb9',1,'analysis']]],
+  ['shiphsds_7',['SHiPhsds',['../d7/df4/SHiPhsds_8cc.html#a5f737326f82e6bbd28d30735e7d60ce5',1,'SHiPhsds():&#160;SHiPhsds.cc'],['../d4/da5/SHiPhsds_8h.html#a5f737326f82e6bbd28d30735e7d60ce5',1,'SHiPhsds():&#160;SHiPhsds.cc']]],
+  ['shiphsds_2ecc_8',['SHiPhsds.cc',['../d7/df4/SHiPhsds_8cc.html',1,'']]],
+  ['shiphsds_2eh_9',['SHiPhsds.h',['../d4/da5/SHiPhsds_8h.html',1,'']]],
+  ['shiphsdscuts_10',['SHiPhsdsCuts',['../d4/da5/SHiPhsds_8h.html#a1ee2493c7e806df751f242472b385a27',1,'SHiPhsdsCuts(HepMC::GenEvent *evtInput):&#160;SHiPhsds.cc'],['../d7/df4/SHiPhsds_8cc.html#ab78f8d5ee847451ac1af062a76a9abcf',1,'SHiPhsdsCuts(HepMC::GenEvent *evtin):&#160;SHiPhsds.cc']]],
+  ['sigma_11',['sigma',['../d9/dbc/classinputInterface.html#aaace266cd116401cb14e0bbcd500c5d4',1,'inputInterface::sigma()'],['../d4/db0/classanalysis.html#a525c99d1f8a60d0ffc7ceb658cefe1be',1,'analysis::sigma()']]],
+  ['storedefaultcards_12',['storeDefaultCards',['../d5/da5/tools_8h.html#a16cc569d2f967f992bc4d5d85a0701a5',1,'storeDefaultCards():&#160;tools.cc'],['../d7/d21/tools_8cc.html#a16cc569d2f967f992bc4d5d85a0701a5',1,'storeDefaultCards():&#160;tools.cc']]]
 ];

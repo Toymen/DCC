@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['f_0',['f',['../d4/d54/structnlohmann_1_1detail_1_1dtoa__impl_1_1diyfp.html#aea90459e340a231ca31d46946803ef51',1,'nlohmann::detail::dtoa_impl::diyfp::f()'],['../d5/dfe/structnlohmann_1_1detail_1_1dtoa__impl_1_1cached__power.html#a21ae81f515f5b08d5bf423775ee56074',1,'nlohmann::detail::dtoa_impl::cached_power::f()']]],
-  ['flysign_1',['flysign',['../de/d8c/classCylSeg.html#af52770a23caa09b0403993ef0d5333c4',1,'CylSeg']]]
+  ['mass_0',['mass',['../d6/da4/classanalysis_1_1CLLP.html#a7b43b3c5821e91ee1d8446958d6776f6',1,'analysis::CLLP::mass()'],['../d8/d0e/classinputInterface_1_1CLLP.html#af081b7d349e71582bbd00871fb3de883',1,'inputInterface::CLLP::mass()']]],
+  ['mydetectorlist_1',['myDetectorList',['../d4/db0/classanalysis.html#a22eef53c1f5e1a8e0cdea63c95c68f6e',1,'analysis::myDetectorList()'],['../d9/dbc/classinputInterface.html#a31b79e604ecae4ce0c607759c5d4a55c',1,'inputInterface::myDetectorList()']]]
 ];

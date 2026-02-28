@@ -36,14 +36,13 @@ TESTDIR=tests
 
 BIN=$(BINDIR)/main
 UNITBIN=$(BINDIR)/cyldetlayer_tdd
+REGTESTBIN=$(BINDIR)/detector_registry_tdd
 SRC=$(shell find . -name '*.cc')
 TMP=$(subst $(SRCDIR),$(LIBDIR), $(SRC))
 OBJ=$(patsubst %.cc,%.o,$(TMP))
 
-.PHONY: all main clean DetEditor test-cyldetlayer
+.PHONY: all main clean DetEditor test-cyldetlayer test-detector-geometry test-detector-registry
 UTILTESTBIN=$(BINDIR)/detector_geometry_utils_tdd
-
-.PHONY: test-detector-geometry
 
 
 all: main DetEditor
@@ -69,6 +68,9 @@ test-cyldetlayer: $(UNITBIN)
 test-detector-geometry: $(UTILTESTBIN)
 	$(UTILTESTBIN)
 
+test-detector-registry: $(REGTESTBIN)
+	$(REGTESTBIN)
+
 $(UNITBIN): $(TESTDIR)/cyldetlayer_tdd.cpp $(SRCDIR)/CCylSeg.cc $(SRCDIR)/CCylDetLayer.cc
 	@[ ! -d $(BINDIR) ] & mkdir -p $(BINDIR)
 	$(CC) -std=c++17 -I/opt/homebrew/include -iquote . -o $@ $^
@@ -77,5 +79,9 @@ $(UTILTESTBIN): $(TESTDIR)/detector_geometry_utils_tdd.cpp $(SRCDIR)/DetectorGeo
 	@[ ! -d $(BINDIR) ] & mkdir -p $(BINDIR)
 	$(CC) -std=c++17 -I/opt/homebrew/include -iquote . -o $@ $^
 
+$(REGTESTBIN): $(TESTDIR)/detector_registry_tdd.cpp
+	@[ ! -d $(BINDIR) ] & mkdir -p $(BINDIR)
+	$(CC) -std=c++17 -I/opt/homebrew/include -iquote . -o $@ $^
+
 clean:
-	rm -rf build bin/main bin/DetEditor $(UNITBIN) $(UTILTESTBIN)
+	rm -rf build bin/main bin/DetEditor $(UNITBIN) $(UTILTESTBIN) $(REGTESTBIN)

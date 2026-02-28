@@ -1,35 +1,30 @@
 #ifndef _DETECTORS_
 #define _DETECTORS_
 
-#include "include/Detectors/MATHUSLA0.h"
-#include "include/Detectors/MATHUSLA1.h"
-#include "include/Detectors/MATHUSLA2.h"
-#include "include/Detectors/FASER1.h"
-#include "include/Detectors/FASER2.h"
-#include "include/Detectors/AL3X.h"
-#include "include/Detectors/CODEXB0.h"
-#include "include/Detectors/CODEXB1.h"
-#include "include/Detectors/ANUBIS0.h"
-#include "include/Detectors/ANUBIS1.h"
-#include "include/Detectors/MAPP1.h"
-#include "include/Detectors/MAPP2.h"
-#include "include/Detectors/FACET.h"
-#include "include/Detectors/MATHUSLA40.h"
-#include "include/Detectors/ANUBISceiling.h"
-#include "include/Detectors/BelleII.h"
-#include "include/Detectors/BelleIIBabyGAZELLE.h"
-#include "include/Detectors/BelleIIGODZILLA.h"
-#include "include/Detectors/BelleIILGAZELLEB1.h"
-#include "include/Detectors/BelleIILGAZELLEB2.h"
-#include "include/Detectors/SHiPhsds.h"
-#include "include/Detectors/FOREHUNT.h"
-#include "include/Detectors/DELIGHTA.h"
-#include "include/Detectors/DELIGHTB.h"
-#include "include/Detectors/DELIGHTC.h"
-#include "include/Detectors/FCChhFT.h"
-#include "include/Detectors/FCChhCT.h"
+#include <string>
+#include <vector>
 
-// END OF INCLUDE DEFINITIONS
+#include "include/CDetector.h"
+
+namespace HepMC {
+class GenEvent;
+}
+
+// Centralized declarations generated from DetectorRegistry.def
+#define DETECTOR_ENTRY(NAME, FACTORY_FN, CUTS_FN) \
+  Detector FACTORY_FN(); \
+  bool CUTS_FN(HepMC::GenEvent*);
+#include "include/DetectorRegistry.def"
+#undef DETECTOR_ENTRY
+
+inline std::vector<std::string> RegisteredDetectorNames() {
+  std::vector<std::string> names;
+  names.reserve(64);
+#define DETECTOR_ENTRY(NAME, FACTORY_FN, CUTS_FN) names.push_back(NAME);
+#include "include/DetectorRegistry.def"
+#undef DETECTOR_ENTRY
+  return names;
+}
 
 /*! \brief
  * The CreateDetectors function looks for the detectors from a list (vector) of identifiers

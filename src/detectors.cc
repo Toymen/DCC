@@ -3,6 +3,22 @@
 */
 #include "include/detectors.h"
 
+namespace {
+struct DetectorEntry {
+  const char* name;
+  Detector (*factory)();
+};
+
+const std::vector<DetectorEntry>& DetectorRegistry() {
+  static const std::vector<DetectorEntry> registry = {
+#define DETECTOR_ENTRY(NAME, FACTORY_FN, CUTS_FN) {NAME, &FACTORY_FN},
+#include "include/DetectorRegistry.def"
+#undef DETECTOR_ENTRY
+  };
+  return registry;
+}
+}  // namespace
+
 /*! \fn CreateDetectors
  * The CreateDetectors function looks for the detectors from a list (vector) of
     identifiers (strings) and returns a vector of detectors that can be tested
@@ -22,113 +38,9 @@ std::vector<Detector> CreateDetectors(std::vector<std::string> nameList) {
  knownDet.clear();
  
 //   KNOWN DETECTORS
-     // Uncle Simon's MATHUSLA
- Detector MATHUSLAO=MATHUSLA0();
- knownDet.push_back(MATHUSLAO);
-    
-    // Improved MATHUSLA
- Detector MATHUSLAI=MATHUSLA1();
- knownDet.push_back(MATHUSLAI);
-    
-    // Building MATHUSLA from 3m-high bricks
- Detector MATHUSLAB=MATHUSLA2();
- knownDet.push_back(MATHUSLAB);
-    
-    // FASER
- Detector FASERI=FASER1();
- knownDet.push_back(FASERI);
-    
-    // FASER2
- Detector FASERII=FASER2();
- knownDet.push_back(FASERII);
-    
-    // Uncle Simon's ANUBIS
- Detector ANUBISO=ANUBIS0();
- knownDet.push_back(ANUBISO);
-    
-    // Building ANUBIS from 1m-high, 1m-deep bricks
- Detector ANUBISB=ANUBIS1();
- knownDet.push_back(ANUBISB);
-    
-    // Building AL3X
- Detector AL3X0=AL3X();
- knownDet.push_back(AL3X0);
-    
-    // Building a simple CODEXB
- Detector CODEXBO=CODEXB0();
- knownDet.push_back(CODEXBO);
-    
-    // Building an improved CODEXB
- Detector CODEXBI=CODEXB1();
- knownDet.push_back(CODEXBI);
-
-    // Building MAPP1
- Detector MAPP1X=MAPP1();
- knownDet.push_back(MAPP1X);
-    
-    // Building MAPP2
- Detector MAPP2X=MAPP2();
- knownDet.push_back(MAPP2X);
- 
-    // Building FACET
- Detector FACETX=FACET();
- knownDet.push_back(FACETX);
-
- // Building MATHUSLA40
- Detector MATHUSLA40X=MATHUSLA40();
- knownDet.push_back(MATHUSLA40X);
-
- // Building ANUBISceiling
- Detector ANUBISceilingX=ANUBISceiling();
- knownDet.push_back(ANUBISceilingX);
-
- // Building BelleII
- Detector BelleIIX=BelleII();
- knownDet.push_back(BelleIIX);
-
- // Building BelleIIBabyGAZELLE
- Detector BelleIIBabyGAZELLEX=BelleIIBabyGAZELLE();
- knownDet.push_back(BelleIIBabyGAZELLEX);
-
- // Building BelleIIGODZILLA
- Detector BelleIIGODZILLAX=BelleIIGODZILLA();
- knownDet.push_back(BelleIIGODZILLAX);
-
- // Building BelleIILGAZELLEB1
- Detector BelleIILGAZELLEB1X=BelleIILGAZELLEB1();
- knownDet.push_back(BelleIILGAZELLEB1X);
-
- // Building BelleIILGAZELLEB2
- Detector BelleIILGAZELLEB2X=BelleIILGAZELLEB2();
- knownDet.push_back(BelleIILGAZELLEB2X);
-
- // Building SHiPhsds
- Detector SHiPhsdsX=SHiPhsds();
- knownDet.push_back(SHiPhsdsX);
-
- // Building FOREHUNT
- Detector FOREHUNTX=FOREHUNT();
- knownDet.push_back(FOREHUNTX);
-
- // Building DELIGHTA
- Detector DELIGHTAX=DELIGHTA();
- knownDet.push_back(DELIGHTAX);
-
- // Building DELIGHTB
- Detector DELIGHTBX=DELIGHTB();
- knownDet.push_back(DELIGHTBX);
-
- // Building DELIGHTC
- Detector DELIGHTCX=DELIGHTC();
- knownDet.push_back(DELIGHTCX);
-
- // Building FCChhFT
- Detector FCChhFTX=FCChhFT();
- knownDet.push_back(FCChhFTX);
-
- // Building FCChhCT
- Detector FCChhCTX=FCChhCT();
- knownDet.push_back(FCChhCTX);
+ for (const auto& entry : DetectorRegistry()) {
+  knownDet.push_back(entry.factory());
+ }
 
 // BUILDING THE LIST OF STUDIED DETECTORS
    std::vector<std::array<double,3>> TDcoord;

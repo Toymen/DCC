@@ -1,5 +1,5 @@
 #include "include/Detectors/SHiPhsds.h"
-#include <cmath>
+#include "include/DetectorGeometryUtils.h"
 
 // SHiPhsds: pyramidal frustum
 //https://cds.cern.ch/record/2878604/files/SPSC-P-369.pdf
@@ -8,59 +8,11 @@
 // upstream: 1.0 × 2.7 m², downstream: 4.0 × 6.0 m²
 
 Detector SHiPhsds() {
-    double zmin = 33.0;
-    double dl   = 50.0;       // total length
-    double dz   = 1.0;        // slice thickness in z
-
-    // dimensions
-    double wx_u = 1.0, wy_u = 2.7;
-    double wx_d = 4.0, wy_d = 6.0;
-
-    // brickization params
-    double dh   = 0.1;                // radial thickness
-    int phct0 = 800;
-    double dphi = 2*M_PI / phct0;// ~0.00785 rad (like in MATHUSLA40)
-
-    std::vector<CylDetLayer> bricks;
-    bricks.clear();
-
-    int nslices = int(dl / dz);//50/1 = 50
-    for (int iz = 0; iz < nslices; iz++) {
-        double zlow = zmin + iz * dz;
-        double zhigh = zlow + dz;
-        double zmid = 0.5 * (zlow + zhigh);
-
-        // linear interpolation of rectangle width/height at zmid
-        double wx = wx_u + (wx_d - wx_u) * (zmid - zmin) / dl;
-        double wy = wy_u + (wy_d - wy_u) * (zmid - zmin) / dl;
-
-        // maximum radius at this slice
-        double rmax = std::sqrt(std::pow(wx/2.0,2) + std::pow(wy/2.0,2)) *1.1; //having 1.1 is a good practice, though it does not affect our result at all for the present geometry
-        int hct0 = static_cast<int>(rmax / dh) + 1;
-        
-        // loop over radial shells
-        for (int hct = 0; hct < hct0; hct++) {
-            double hcoord = (hct + 0.5) * dh;
-            int count = 0;
-
-            // loop over phi
-            for (int phct = 0; phct < phct0; phct++) {
-                double phi = phct * dphi;
-                double x = hcoord * cos(phi);
-                double y = hcoord * sin(phi);
-
-                if (std::abs(x) <= wx / 2.0 && std::abs(y) <= wy / 2.0) {
-                    count++;
-                }
-            }
-
-            if (count > 0) {
-                std::array<double,2> brkcoord = {zmid, hcoord};
-                CylDetLayer newbrick = CylBrick(brkcoord, dz, dh, count * dphi, 1.0);
-                bricks.push_back(newbrick);
-            }
-        }
-    }
+    const auto bricks = BuildRectangularFrustumBricks(
+        33.0, 50.0, 1.0,
+         1.0,  4.0,
+         2.7,  6.0,
+         0.1, 800, 1.1);
 
     std::string Dname = "SHiPhsds";
     double DLumi = 4.6e6;

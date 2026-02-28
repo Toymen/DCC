@@ -1,15 +1,9 @@
 #include "include/Detectors/FACET.h"
+#include "include/DetectorGeometryUtils.h"
 
 Detector FACET() {
- std::array<double,2> AA={101.,0.1},BB={119.,0.1},CC={119.,0.5},DD={101.,0.5};       // Corner points
- std::vector<std::array<double,2>> ptlist={AA,BB,CC,DD};
- double facetweight=1.;           // angular coverage
- CylDetLayer facetlay(ptlist,facetweight);
- std::vector<CylDetLayer> myDetLayers={facetlay};
- std::string Dname="FACET";
- double DLumi=3000.;
- Detector myDetector(Dname,DLumi,myDetLayers);
- return myDetector;
+ const auto layers = BuildZHRectLayers({{101.0, 119.0, 0.1, 0.5, 1.0}});
+ return Detector("FACET", 3000.0, layers);
 }
 
 bool FACETCuts(HepMC::GenEvent* evtin){

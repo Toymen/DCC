@@ -32,13 +32,19 @@ SRCDIR=src
 HEADDIR=include
 LIBDIR=build
 BINDIR=bin
+TESTDIR=tests
 
 BIN=$(BINDIR)/main
+UNITBIN=$(BINDIR)/cyldetlayer_tdd
 SRC=$(shell find . -name '*.cc')
 TMP=$(subst $(SRCDIR),$(LIBDIR), $(SRC))
 OBJ=$(patsubst %.cc,%.o,$(TMP))
 
-.PHONY: all main clean DetEditor
+.PHONY: all main clean DetEditor test-cyldetlayer
+UTILTESTBIN=$(BINDIR)/detector_geometry_utils_tdd
+
+.PHONY: test-detector-geometry
+
 
 all: main DetEditor
 
@@ -57,5 +63,19 @@ DetEditor: $(BINDIR)/DetEditor
 $(BINDIR)/DetEditor: $(SRCDIR)/DetEditor.cxx
 	$(CC) -o $@ -std=c++17 $< -lstdc++fs
 
+test-cyldetlayer: $(UNITBIN)
+	$(UNITBIN)
+
+test-detector-geometry: $(UTILTESTBIN)
+	$(UTILTESTBIN)
+
+$(UNITBIN): $(TESTDIR)/cyldetlayer_tdd.cpp $(SRCDIR)/CCylSeg.cc $(SRCDIR)/CCylDetLayer.cc
+	@[ ! -d $(BINDIR) ] & mkdir -p $(BINDIR)
+	$(CC) -std=c++17 -I/opt/homebrew/include -iquote . -o $@ $^
+
+$(UTILTESTBIN): $(TESTDIR)/detector_geometry_utils_tdd.cpp $(SRCDIR)/DetectorGeometryUtils.cc $(SRCDIR)/CCylSeg.cc $(SRCDIR)/CCylDetLayer.cc $(SRCDIR)/CDetector.cc
+	@[ ! -d $(BINDIR) ] & mkdir -p $(BINDIR)
+	$(CC) -std=c++17 -I/opt/homebrew/include -iquote . -o $@ $^
+
 clean:
-	rm -rf build bin/main bin/DetEditor
+	rm -rf build bin/main bin/DetEditor $(UNITBIN) $(UTILTESTBIN)

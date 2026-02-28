@@ -3,6 +3,23 @@
 */
 #include "include/CCylDetLayer.h"
 #include "include/CCylSeg.h"
+#include <algorithm>
+#include <boost/geometry.hpp>
+#include <boost/geometry/geometries/multi_point.hpp>
+#include <boost/geometry/geometries/point_xy.hpp>
+#include <cmath>
+
+namespace bg = boost::geometry;
+
+namespace {
+using BoostPoint = bg::model::d2::point_xy<double>;
+using BoostMultiPoint = bg::model::multi_point<BoostPoint>;
+using BoostPolygon = bg::model::polygon<BoostPoint>;
+constexpr double kEps = 1e-10;
+bool samePoint(const std::array<double,2>& a, const std::array<double,2>& b) {
+  return std::abs(a[0] - b[0]) <= kEps && std::abs(a[1] - b[1]) <= kEps;
+}
+} // namespace
 
 /*! \brief
  * Simple constructor pf the CylDetLayer class.
@@ -22,135 +39,87 @@ CylDetLayer::CylDetLayer(std::vector<CylSeg> Seglist,double wgh) {
 */
  
 CylDetLayer::CylDetLayer(std::vector<std::array<double,2>> ptlist,double wgh) { 
- //  reset all y-values to positive.
-    if(ptlist.size()>=1){
-     for(int i=0; i<ptlist.size(); i++){
-      if(ptlist[i][1]<0)ptlist[i][1]=-ptlist[i][1];
-     }
-    }
- //  check that the list contains three non-aligned points.
-    bool nonalign=false;
-    double detcomp=0.;
-    if(ptlist.size()>=3){
-     for(int i=0; i<ptlist.size()-2; i++){
-      for(int j=i+1; j<ptlist.size()-1; j++){
-       if(abs(ptlist[j][0]-ptlist[i][0])>1e-5 || abs(ptlist[j][1]-ptlist[i][1])>1e-5) {
-        for(int k=j+1; k<ptlist.size(); k++){
-         detcomp=abs((ptlist[j][1]-ptlist[i][1])*(ptlist[k][0]-ptlist[i][0])-(ptlist[j][0]-ptlist[i][0])*(ptlist[k][1]-ptlist[i][1]));
-         if(detcomp>1e-10)nonalign=true;
-         if(nonalign)break;
-        }
-       }
-       if(nonalign)break;
-      }
-      if(nonalign)break;
-     }
-    }
- //  find the points with farthest and closest theta aperture.
-      double thmax=0.,thmin=4.*atan(1.);
-      int imax=0,imin=0;
-     if(nonalign){
-      for(int i=0; i<ptlist.size(); i++){
-       if(abs(ptlist[i][0]*ptlist[i][0]+ptlist[i][1]*ptlist[i][1])>1e-10){
-        double th=acos(ptlist[i][0]/sqrt(ptlist[i][0]*ptlist[i][0]+ptlist[i][1]*ptlist[i][1]));
-        if(th>thmax){
-         thmax=th;
-         imax=i;
-        }
-        if(th==thmax && ptlist[i][0]*ptlist[i][0]+ptlist[i][1]*ptlist[i][1]>ptlist[imax][0]*ptlist[imax][0]+ptlist[imax][1]*ptlist[imax][1]){
-         thmax=th;
-         imax=i;
-        }
-        if(th<thmin){
-         thmin=th;
-         imin=i;
-        }
-        if(th==thmin && ptlist[i][0]*ptlist[i][0]+ptlist[i][1]*ptlist[i][1]<ptlist[imin][0]*ptlist[imin][0]+ptlist[imin][1]*ptlist[imin][1]){
-         thmin=th;
-         imin=i;
-        }
-       }
-      }
-      if(imax==imin){
-       nonalign=false;
-       std::cout << "Warning! Something is wrong with the CylDetLayer constructor." << std::endl;
-      }
-     }
- //  build the external convex envelope.
-      std::vector<int> ordlist,ordlist2;
-     if(nonalign){
-      ordlist.push_back(imax);
-      std::vector<int> adjpt;
-      int istart=imax;
-      int count=0;
-      do{
-      count=count+1;
-      adjpt.clear();
-      for(int i=0; i<ptlist.size(); i++){
-       bool conv=true;
-       if(i==istart || (abs(ptlist[istart][0]-ptlist[i][0])<1e-5 && abs(ptlist[istart][1]-ptlist[i][1])<1e-5))conv=false;
-       for(int j=0; j<ptlist.size(); j++){
-        if(!conv)break;
-        if(j==istart || j==i)continue;
-        detcomp=(ptlist[istart][0]-ptlist[i][0])*(ptlist[j][1]-ptlist[i][1])-(ptlist[istart][1]-ptlist[i][1])*(ptlist[j][0]-ptlist[i][0]);
-        if(detcomp<-1e-10)conv=false;
-        if(abs(detcomp)<1e-10 && (ptlist[istart][0]-ptlist[i][0])*(ptlist[istart][0]-ptlist[i][0])+(ptlist[istart][1]-ptlist[i][1])*(ptlist[istart][1]-ptlist[i][1])<(ptlist[istart][0]-ptlist[j][0])*(ptlist[istart][0]-ptlist[j][0])+(ptlist[istart][1]-ptlist[j][1])*(ptlist[istart][1]-ptlist[j][1]))conv=false; 
-       }
-       if(conv)adjpt.push_back(i);
-      }
-      if(adjpt.size()==1){
-       ordlist.push_back(adjpt[0]);
-       istart=adjpt[0];
-      } else {
-       std::cout << "Warning! Something is wrong with the CylDetLayer constructor." << std::endl;
-      }
-      } while(ordlist[ordlist.size()-1]!=imin && count<=ptlist.size());
-      
-      count=0;
-      istart=imin;
-      ordlist2.push_back(imin);
-      do{
-      count=count+1;
-      adjpt.clear();
-      for(int i=0; i<ptlist.size(); i++){
-       bool conv=true;
-       if(i==istart || (abs(ptlist[istart][0]-ptlist[i][0])<1e-5 && abs(ptlist[istart][1]-ptlist[i][1])<1e-5))conv=false;
-       for(int j=0; j<ptlist.size(); j++){
-        if(!conv)break;
-        if(j==istart || j==i)continue;
-        detcomp=(ptlist[istart][0]-ptlist[i][0])*(ptlist[j][1]-ptlist[i][1])-(ptlist[istart][1]-ptlist[i][1])*(ptlist[j][0]-ptlist[i][0]);
-        if(detcomp<-1e-10)conv=false;
-        if(abs(detcomp)<1e-10 && (ptlist[istart][0]-ptlist[i][0])*(ptlist[istart][0]-ptlist[i][0])+(ptlist[istart][1]-ptlist[i][1])*(ptlist[istart][1]-ptlist[i][1])<(ptlist[istart][0]-ptlist[j][0])*(ptlist[istart][0]-ptlist[j][0])+(ptlist[istart][1]-ptlist[j][1])*(ptlist[istart][1]-ptlist[j][1]))conv=false; 
-       }
-       if(conv)adjpt.push_back(i);
-      }
-      if(adjpt.size()==1){
-       ordlist2.push_back(adjpt[0]);
-       istart=adjpt[0];
-      } else {
-       std::cout << "Warning! Something is wrong with the CylDetLayer constructor." << std::endl;
-      }
-      } while(ordlist2[ordlist2.size()-1]!=imax && count<=ptlist.size());
-     }
- // define the oriented cylindrical segments.
-  CylSegList.clear();
-  if(ordlist.size()>1){
-   for(int i=0;i<ordlist.size()-1;i++){
-    CylSeg idSeg(ptlist[ordlist[i]],ptlist[ordlist[i+1]],-1);
-    CylSegList.push_back(idSeg);
-   }
-  } else {
-    std::cout << "Warning! Something is wrong with the CylDetLayer constructor." << std::endl;
-  }
-  if(ordlist2.size()>1){
-   for(int i=0;i<ordlist2.size()-1;i++){
-    CylSeg idSeg(ptlist[ordlist2[i]],ptlist[ordlist2[i+1]],1);
-    CylSegList.push_back(idSeg);
-   }
-  } else {
-    std::cout << "Warning! Something is wrong with the CylDetLayer constructor." << std::endl;
-  }
   weight=wgh;
+  CylSegList.clear();
+  auto warn = []() {
+    std::cout << "Warning! Something is wrong with the CylDetLayer constructor." << std::endl;
+  };
+
+  // Normalize y >= 0 and de-duplicate points.
+  std::vector<std::array<double,2>> cleanPts;
+  cleanPts.reserve(ptlist.size());
+  for (auto p : ptlist) {
+    if (p[1] < 0.) p[1] = -p[1];
+    bool duplicate = false;
+    for (const auto& q : cleanPts) {
+      if (samePoint(q, p)) { duplicate = true; break; }
+    }
+    if (!duplicate) cleanPts.push_back(p);
+  }
+  if (cleanPts.size() < 3) {
+    warn();
+    return;
+  }
+
+  BoostMultiPoint mpts;
+  for (const auto& p : cleanPts) {
+    bg::append(mpts, BoostPoint(p[0], p[1]));
+  }
+  BoostPolygon hull;
+  bg::convex_hull(mpts, hull);
+  bg::correct(hull);
+
+  const auto& ring = hull.outer();
+  std::vector<std::array<double,2>> hullPts;
+  hullPts.reserve(ring.size() > 0 ? ring.size() - 1 : 0);
+  for (size_t i=0; i + 1 < ring.size(); ++i) {
+    hullPts.push_back({bg::get<0>(ring[i]), bg::get<1>(ring[i])});
+  } // ring closes by repeating first point
+  if (hullPts.size() < 3) {
+    warn();
+    return;
+  }
+
+  // Find indices with max/min theta aperture.
+  double thmax = -1.0;
+  double thmin = 4. * atan(1.);
+  int imax = -1;
+  int imin = -1;
+  auto theta = [](const std::array<double,2>& p) {
+    const double r2 = p[0]*p[0] + p[1]*p[1];
+    if (r2 <= kEps) return 0.0;
+    return acos(std::clamp(p[0] / sqrt(r2), -1.0, 1.0));
+  };
+  auto r2 = [](const std::array<double,2>& p) { return p[0]*p[0] + p[1]*p[1]; };
+  for (int i=0; i<(int)hullPts.size(); ++i) {
+    const double th = theta(hullPts[i]);
+    if (th > thmax + kEps || (std::abs(th-thmax) <= kEps && (imax < 0 || r2(hullPts[i]) > r2(hullPts[imax])))) {
+      thmax = th;
+      imax = i;
+    }
+    if (th < thmin - kEps || (std::abs(th-thmin) <= kEps && (imin < 0 || r2(hullPts[i]) < r2(hullPts[imin])))) {
+      thmin = th;
+      imin = i;
+    }
+  }
+  if (imax < 0 || imin < 0 || imax == imin) {
+    warn();
+    return;
+  }
+
+  auto addPath = [&](int start, int end, int sign) {
+    int idx = start;
+    int guard = 0, n = (int)hullPts.size();
+    while (idx != end && guard <= n + 1) {
+      int next = (idx + 1) % n;
+      CylSegList.push_back(CylSeg(hullPts[idx], hullPts[next], sign));
+      idx = next;
+      ++guard;
+    }
+    if (idx != end) warn();
+  };
+  addPath(imax, imin, -1);
+  addPath(imin, imax, 1);
 }
 
 /*! \brief

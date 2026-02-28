@@ -1,15 +1,9 @@
 #include "include/Detectors/FCChhFT.h"
+#include "include/DetectorGeometryUtils.h"
 
 Detector FCChhFT() { 
- std::array<double,2> AA={10,20./1000.},BB={16.,20./1000.},CC={16.,1.6},DD={10.,1.6};       // Corner points
- std::vector<std::array<double,2>> ptlist={AA,BB,CC,DD};
- double fcchhftweight=1.;           // angular coverage
- CylDetLayer fcchhftlay(ptlist,fcchhftweight);
- std::vector<CylDetLayer> myDetLayers={fcchhftlay};
- std::string Dname="FCChhFT";
- double DLumi=20000;//20/ab
- Detector myDetector(Dname,DLumi,myDetLayers);
- return myDetector;
+ const auto layers = BuildZHRectLayers({{10.0, 16.0, 20.0/1000.0, 1.6, 1.0}});
+ return Detector("FCChhFT", 20000.0, layers);
 }
 
 bool FCChhFTCuts(HepMC::GenEvent* evtin){
